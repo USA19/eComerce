@@ -1,0 +1,44 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav2.ejs') %>
+
+<div class="container">
+  <div class="row">
+    <div style="margin:5% auto 0;">
+      <%if(message){%>
+        <div class="user-message user-message--error"><%=message%></div>
+        <%} %>
+          
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-12">
+        
+        <form class="fapne"  action="/checkout" method="POST">
+            <h4>Checkout Information</h4>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Your Address</label>
+                <textarea name="cAddress" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+              </div>
+            
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Shipping Address</label>
+                <textarea  name="sAddress" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            
+            <button type="submit" class="btn btn-primary">Order Now!</button>
+          </form>
+            </div>
+     
+    </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<%- include('includes/footer.ejs') %>

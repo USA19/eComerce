@@ -1,0 +1,150 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav2.ejs') %>
+        
+
+
+		<!-- Shopping Table Container -->
+		<div class="cart-area-start">
+			<div class="container">
+				<!-- Shopping Cart Table -->
+				<%if(products.length == 0){%>
+				<div class="row">
+					
+					<div class="col-md-12">
+						<div class="table-responsive">
+						
+							<table class="cart-table">
+								<thead>
+									<tr>
+										<th>Product</th>
+										<th>Product name</th>
+										<th></th>
+										<th>Unit Price</th>
+										<th>Qty</th>
+										<th>Subtotal</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+							<div style="margin:1% auto 10%;">
+								<div class="user-message user-message--error">Your Cart Is Empty</div>
+							</div>
+						</div>
+						
+						
+							 
+					</div>	  
+							 
+							
+				</div>
+				<%}else{%>	
+				<div class="row">
+					
+					<div class="col-md-12">
+						
+						<div class="table-responsive">
+							
+							<table class="cart-table">
+								<thead>
+									<tr>
+										<th>Product</th>
+										<th>Product name</th>
+										<th></th>
+										<th>Unit Price</th>
+										<th>Qty</th>
+										<th>Subtotal</th>
+										<th></th>
+									</tr>
+								</thead>
+								<% products.forEach(p => { %>
+								<tbody>
+									<tr>
+										<td>
+											<a href="#"><img src="<%=p.productId.imageUrl%>" class="img-responsive" alt=""/></a>
+										</td>
+										<td>
+											<h6><%=p.productId.title%></h6>
+										</td>
+										<td></td>
+										<td>
+											<div class="cart-price"><%=p.productId.price%></div>
+										</td>
+										<td>
+											
+											
+												<!-- <button type="submit" value="subtract" class="btn"name="subtract" id="subtract"  onclick="subtractQuantity()"><a href="/cart" id="form">-</a></button> -->
+					
+												<input   name="quantity" id="field" value="<%=p.quantity%>"></input>
+												
+												<!-- <button type="submit" value="add" class="btn"  name="Add" id="Add" onclick="addQuantity()"><a href="/cart" id="form2">+</a></button> -->
+											
+
+										</td>
+										<td>
+											<div class="cart-subtotal"><%=p.productId.price* p.quantity%></div>
+										</td>
+										<td><a href="/deleteCartItem/<%=p._id%>"><i class="fa fa-times"></i></a></td>
+									</tr>
+									<!-- <tr>
+										<td>
+											<a href="#"><img src="img/products/cart/cart-2.jpg" class="img-responsive" alt=""/></a>
+										</td>
+										<td>
+											<h6>PRIMIS IN FAUCIBUS</h6>
+										</td>
+										<td><a href="#">Edit</a></td>
+										<td>
+											<div class="cart-price">$150.00</div>
+										</td>
+										<td>
+											<form>
+												<input type="text" placeholder="1">
+											</form>
+										</td>
+										<td>
+											<div class="cart-subtotal">$400.00</div>
+										</td>
+										<td><a href="#"><i class="fa fa-times"></i></a></td>
+									</tr> -->
+					<%})%>
+									
+									<tr>
+										<td class="actions-crt" colspan="7">
+											<div class="">
+												<div class="col-md-6 col-sm-6 col-xs-6 align-left"><a class="cbtn" href="/checkout">Continue Shopping</a></div>
+												<!-- <div class="col-md-4 col-sm-4 col-xs- align-center"></div> -->
+												<div class="col-md-6 col-sm-6 col-xs-6 align-right"><a class="cbtn" href="/clearCart">CLEAR SHOPPING CART</a></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				<!-- //this --></div>
+				
+		
+				
+						<!-- Shopping Totals -->
+						<div class="shipping coupon cart-totals">
+							<ul>
+								
+								<li class="cartSubT">Grand total:    <span><%=total%></span></li>
+							</ul>
+							<a class="proceedbtn" href="/checkout">PROCEED TO CHECK OUT</a>
+							
+						</div>
+						<!-- Shopping Totals -->
+						
+						<%}%>			
+				<!-- Shopping Coupon -->
+			</div>
+			
+		</div>
+        <!-- Shopping Table Container -->
+        
+
+        <%- include('includes/footer.ejs') %>

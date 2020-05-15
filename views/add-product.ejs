@@ -1,0 +1,46 @@
+
+     
+    
+      
+  
+
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/nav2.ejs') %>
+
+
+ <main>
+        
+    <form action="<%=path%>" enctype="multipart/form-data" method="POST" style="max-width: 500px;
+        margin: 12% auto 25%;">
+             <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" name="title" value="<%=product.title%>" >
+              
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" class="form-control" id="price" name="price" value="<%=product.price%>">
+            </div>
+            <div class="form-group">
+           
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" value="<%=product.imageUrl%>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" value="<%=product.description%>"></textarea>
+            </div>
+          
+      
+            <% if (path=="/admin/edit") { %>
+              <input type="hidden" name="productId" value="<%=product._id%>">
+              <% }  %>
+                 
+             
+            <button type="submit" class="btn btn-primary btn-lg center">+ </button>
+            
+        </form>
+    </main>
+
+
+    <%- include('includes/footer.ejs') %>

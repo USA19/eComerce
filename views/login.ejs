@@ -1,0 +1,85 @@
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/nav2.ejs') %>
+
+
+		<!-- account-details Area Start -->
+	
+		<div class="customer-login-area" style="margin:3% 0 10% ;">
+			<div class="container">
+				<div class="row">
+					<div style="margin:0 auto;">
+						<%if(errorMessage){%>
+							<div class="user-message user-message--error"><%=errorMessage%></div>
+							<%} else{%>
+								
+							<%if(signupError){%>
+								<div class="user-message user-message--error"><%=signupError%></div>
+								<%}%>
+
+								<%}%>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						
+						<div class="customer-login my-account">
+							<form method="post" class="login" action="/login">
+								<div class="form-fields">
+									<h2>Login</h2>
+									<p class="form-row form-row-wide">
+										<label for="username">email address <span class="required">*</span></label>
+										<input type="text" class="input-text" name="email" id="username">
+									</p>
+									<p class="form-row form-row-wide">
+										<label for="password">Password <span class="required">*</span></label>
+										<input class="input-text" type="password" name="password" id="password">
+									</p>
+								</div>
+								<div class="form-action">
+									<p class="lost_password"> <a href="/reset">Lost your password?</a></p>
+									<div class="actions-log">
+										<input type="submit" class="button" name="login" value="Login">
+									
+									</div>
+									
+								
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+					
+
+						<div class="customer-register my-account">
+							<form method="post" class="register" action="/signup">
+								<div class="form-fields">
+									<h2>Register</h2>
+									<p class="form-row form-row-wide">
+										<label for="reg_email">Email address <span class="required">*</span></label>
+										<input type="email" class="input-text" name="email" id="reg_email">
+									</p>
+									<p class="form-row form-row-wide">
+										<label for="reg_password">Password <span class="required">*</span></label>
+										<input type="password" class="input-text" name="password" id="reg_password">
+									</p>
+									<div style="left: -999em; position: absolute;">
+										<label for="trap">Anti-spam</label>
+										<input type="text" name="email_2" id="trap" tabindex="-1">
+									</div>
+								</div>
+								<div class="form-action">
+									<div class="actions-log">
+										<input type="submit" class="button" name="register" value="Register">
+										
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- account-details Area end -->
+      
+<%- include('includes/footer.ejs') %>

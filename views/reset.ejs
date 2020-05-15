@@ -1,0 +1,25 @@
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/nav2.ejs') %>
+
+
+ <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="form-group" action="/reset" method="POST" style="max-width: 500px;
+        margin: 12% auto 25%;">
+            <div class="form-group">
+                <label for="Email1">Email address</label>
+                <input type="email"  name="email"class="form-control" id="Email1" aria-describedby="emailHelp">
+               
+              </div>
+            
+         
+            <button class="btn" type="submit">Reset Password</button>
+            
+        </form>
+    </main>
+
+
+    <%- include('includes/footer.ejs') %>

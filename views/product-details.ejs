@@ -1,0 +1,78 @@
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/nav2.ejs') %>
+
+
+		<!-- product-details Area Start -->
+		<div class="product-details-area" style="margin: 5% 0 9%;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 col-sm-5 col-xs-12">
+						<div class="zoomWrapper">
+							<div id="img-1" class="zoomWrapper single-zoom">
+								<a href="#">
+									<img id="zoom1" src="/<%=product.imageUrl%>"  	data-zoom-image="/<%=product.imageUrl%>"  alt="big-1">
+									<!-- <img id="zoom1" src="/<%=product.imageUrl%>"  	data-zoom-image="img/product-details/ex-big-1-1.jpg" alt="big-1"> -->
+																			
+								</a>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-12">
+						<div class="product-list-wrapper">
+							<div class="single-product">
+								<div class="product-content">
+									<h2 class="product-name"><a href="#"><%=product.title%></a></h2>
+									<div class="rating-price">	
+										<div class="pro-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+										<div class="price-boxes">
+											<span class="new-price"><%=product.price%></span>
+										</div>
+									</div>
+									<div class="product-desc">
+										<p><%=product.description%></p>
+									</div>
+									<p class="availability in-stock">Availability: <span>In stock</span></p>
+									<div class="actions-e">
+										<div class="action-buttons-single">
+											<div class="inputx-content">
+												<label for="qty">Quantity:</label>
+												<input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
+											</div>
+											<div class="add-to-cart">
+												<form action="/cart/<%=product._id%>"><button type="submit" class="btn ">Add to cart</button></form>
+												
+											</div>
+											
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+		
+			</div>
+		</div>
+		<!-- product-details Area end -->
+
+
+
+
+
+
+
+
+
+
+
+<%- include('includes/footer.ejs') %>

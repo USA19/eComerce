@@ -1,0 +1,153 @@
+		<!-- header area start -->
+		<header class="short-stor" style="background-color: #4a4b4d;">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- logo start -->
+					<div class="col-md-3 col-sm-12 text-center nopadding-right">
+						<div class="top-logo">
+							<a href="/"><img src="/img/logo.gif" alt="" /></a>
+						</div>
+					</div>
+					<!-- logo end -->
+					<!-- mainmenu area start -->
+					<div class="col-md-6 text-center">
+						<div class="mainmenu">
+							<nav>
+								<ul>
+									<%if(isLoggedIn==true && user.role=='admin'){%>
+                                    <li class="expand <%= path === 'admin/add-product' ? 'active' : '' %>"><a href="/admin/add-product">Add Product</a>
+																		
+									</li>
+									<%}%>
+									
+									<li class="expand <%= path === '/' ? 'active' : '' %>"><a href="/">Home</a>
+																		
+									</li>
+									
+								
+									
+									<li class="expand <%= path === '/shop' ? 'active' : '' %>"><a href="/shop">Shop</a>
+										<ul class="restrain sub-menu">
+											<li><a href="/watches">watches</a></li>
+											<li><a href="/bags">Clutches</a></li>
+											<li><a href="/clutches">bags</a></li>
+											<li><a href="/glasses">Glasses</a></li>
+											
+
+										</ul>									
+									</li>
+									<li class="expand <%= path === '/about' ? 'active' : '' %>"><a href="/about">About</a></li>
+									<li class="expand <%= path === '/contact' ? 'active' : '' %>"><a href="/contact">Contact</a></li>
+									<!-- <%if(!isLoggedIn){%>
+									<li class="expand  <%= path === '/login' ? 'active' : '' %>"><a href="/login"> Signup/Login</a>
+										<%}%> -->
+											
+								</ul>
+							</nav>
+						</div>
+						<!-- mobile menu start -->
+						<div class="row">
+							<div class="col-sm-12 mobile-menu-area">
+								<div class="mobile-menu hidden-md hidden-lg" id="mob-menu">
+									<span class="mobile-menu-title">Menu</span>
+									<nav>
+										<ul>
+											<li><a href="/">Home</a>
+												
+											</li>
+										
+										
+											
+											<li><a href="/shop">Shop</a>
+												<ul>
+													<li><a href="/watches">Watches</a></li>
+													<li><a href="/bags">Clutches</a></li>
+													<li><a href="/clutches">Bags</a></li>
+													<li><a href="/glasses">Glasses</a></li>
+												
+												</ul>													
+											</li>
+											<li><a href="/about">About Us</a></li>
+                                        <li><a href="/contact">Contact Us</a></li>
+                                        <!-- <li><a href="/login">Login/Signup</a> </li> -->
+										</ul>
+									</nav>
+								</div>						
+							</div>
+						</div>
+						<!-- mobile menu end -->
+					</div>
+					<!-- mainmenu area end -->
+					<!-- top details area start -->
+					<div class="col-md-3 col-sm-12 nopadding-left" style="margin-top: 2.5%;">
+						<div class="top-detail">
+							<!-- language division start -->
+							
+							<!-- language division end -->
+							<!-- addcart top start -->
+							
+							<div class="disflow" style="margin:0 10%;">
+								<div class="circle-shopping expand">
+									<div class="shopping-carts text-right">
+										<div class="cart-toggler">
+											<a href="/cart"><i class="icon-bag" style="color: white;"></i></a>
+											<a href="#"><span class="cart-quantity">2</span></a>
+										</div>
+										<div class="restrain small-cart-content">
+											<ul class="cart-list">
+												<li>
+													<a class="sm-cart-product" href="product-details.html">
+														<img src="/img/products/sm-products/cart1.jpg" alt="">
+													</a>
+													<div class="small-cart-detail">
+														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
+														<a href="#" class="edit-btn"><img src="/img/btn_edit.gif" alt="Edit Button" /></a>
+														<a class="small-cart-name" href="product-details.html">Voluptas nulla</a>
+														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
+													</div>
+												</li>
+												<li>
+													<a class="sm-cart-product" href="product-details.html">
+														<img src="/img/products/sm-products/cart2.jpg" alt="">
+													</a>
+													<div class="small-cart-detail">
+														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
+														<a href="#" class="edit-btn"><img src="/img/btn_edit.gif" alt="Edit Button" /></a>
+														<a class="small-cart-name" href="product-details.html">Donec ac tempus</a>
+														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
+													</div>
+												</li>
+											</ul>
+											<p class="total">Subtotal: <span class="amount">$155.00</span></p>
+											<p class="buttons">
+												<a href="/checkout" class="button">Checkout</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						
+							<!-- addcart top start -->
+
+							
+							<div class="disflow" style="margin:0 5%;">
+
+								<%if(isLoggedIn){%>
+									<li style="list-style-type: none;"><form action="/logout" method="POST"><button type="submit"  class="btn btn-outline-light">Logout</button>
+									
+									</form></li>
+									<%}else{%>
+
+										<li style="list-style-type: none;">	<button type="button" class="btn btn-outline-light"><a href="/login">Login/Signup</a>   </button> </li>
+										<%}%>
+								
+							</div>
+							
+						</div>
+					</div>
+					<!-- top details area end -->
+				</div>
+			</div>
+		</header>
+		<!-- header area end -->

@@ -1,0 +1,121 @@
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/nav2.ejs') %>
+
+<!-- from here -->
+
+
+<!-- product section start -->
+
+    <div class="container">
+        <!-- area title start -->
+        <div class="area-title">
+            <h2>Our products</h2>
+        </div>
+        <!-- area title end -->
+        <!-- our-product area start -->
+        <%products.forEach(product=>{%> 
+       <div>    
+                                
+            <div class="col-lg-3">
+               
+                     
+                            
+                               
+                                   
+                                        <!-- single-product start -->
+                                        
+                                        <div class="single-product first-sale">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="primary-image" src="<%=product.imageUrl%>" alt="" />
+                                                    <img class="secondary-image" src="<%=product.imageUrl%>" alt="" />
+                                                </a>
+                                                <div class="action-zoom">
+                                                    <div class="add-to-cart">
+                                                    <!-- Full Image to placed here -->
+                                                        <a href="/shop/<%=product._id%>" title="Quick View"><i class="fa fa-search-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="action-buttons">
+                                                        <div class="add-to-links">
+                                                            <!-- <div class="add-to-wishlist"> -->
+                                                            <!-- wishList href to be placed here -->
+                                                                <!-- <a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                            </div> -->
+                                                            <div class="compare-button">
+                                                            <!-- addTo cart href -->
+                                                                <a href="/cart/<%=product._id%>" title="Add to Cart"><i class="icon-bag"></i></a>
+                                                            </div>									
+                                                        </div>
+                                                        <!-- <div class="quickviewbtn"> -->
+                                                        <!-- compare logic page -->
+                                                            <!-- <a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                                <div class="price-box">
+                                                <!-- price -->
+                                                    <span class="new-price"><%=product.price%></span>
+                                                </div>
+                                            </div>
+                                            <div class="product-content">
+                                            <!-- Title -->
+                                                <h2 class="product-name"><a href="#"><%=product.title%></a></h2>
+                                                <!-- Description -->
+                                                
+                                                <p><%=product.description%></p>
+                                                <%if(isLoggedIn==true && user.role=='admin'){%>
+                                                <div>
+                                                    <form action="/admin/delete/<%=product._id%>" method="POST" style="display: inline;">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                          
+                                                        
+                                                    </form>
+                                                    <button type="button" class="btn btn-outline-dark"><a href="/admin/edit/<%=product._id%>" style="display: inline;">Edit</a></button>
+                                                    
+                                                </div>
+                                                <%}%>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- single-product end -->
+                                        
+                            
+                        
+                    
+               
+        
+             
+            </div>
+        </div>  
+        <%})%>                                 <!-- our-product area end -->	
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+<!-- <div style="margin-bottom: 15rem;"></div> -->
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<%- include('includes/footer.ejs') %>

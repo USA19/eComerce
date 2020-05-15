@@ -1,0 +1,196 @@
+<header class="header-5 short-stor">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- logo start -->
+            <div class="col-md-3 text-center">
+                <div class="top-logo">
+                    <a href="index.html"><img src="img/logo-2.gif" alt="" /></a>
+                </div>
+            </div>
+            <!-- logo end -->
+            <!-- mainmenu area start -->
+            <div class="col-md-6 text-center">
+                <div class="mainmenu">
+                    <nav>
+                        <ul>
+                            <%if(isLoggedIn==true && user.role=='admin'){%>
+                            <li class="expand <%= path === 'admin/add-product' ? 'active' : '' %>"><a href="/admin/add-product">Add Product</a></li>
+                           <%}%>
+                            <li class="expand  <%= path === '/' ? 'active' : '' %>"><a href="/">Home</a>
+                                                                
+                            </li>
+                           
+                            
+                            
+                            <li class="expand <%= path === '/shop' ? 'active' : '' %>"><a href="/shop">Shop</a>
+                                <ul class="restrain sub-menu">
+                                    <li><a href="/watches">Watches</a></li>
+                                    <li><a href="/bags">Clutches</a></li>
+                                    <li><a href="/clutches">Bags</a></li>
+                                    <li><a href="/glasses">Glasses</a></li>
+                                   
+                                    
+                                
+                                </ul>									
+                            </li>
+                            <li class="expand <%= path === '/about' ? 'active' : '' %> "><a href="/about">About</a></li>
+                            <li class="expand <%= path === '/contact' ? 'active' : '' %>"><a href="/contact">Contact</a></li>
+                            <!-- <%if(!isLoggedIn){%>
+                            <li class="expand  <%= path === '/login' ? 'active' : '' %>"><a href="/login"> Signup/login</a>
+                             <%}%>                                    -->
+                            </li>
+                        
+                        </ul>
+                    </nav>
+                </div>
+                <!-- mobile menu start -->
+                <div class="row">
+                    <div class="col-sm-12 mobile-menu-area">
+                        <div class="mobile-menu hidden-md hidden-lg" id="mob-menu">
+                            <span class="mobile-menu-title">Menu</span>
+                            <nav>
+                                <ul>
+                                    <li><a href="/">Home</a>
+                                        
+                                    </li>
+                                    
+                                            
+                                            
+                                    
+                                   
+                                        
+                                            <li><a href="/shop">Shop</a>
+                                                <ul>
+                                                    
+                                                    <li><a href="/watches">Watches</a></li>
+													<li><a href="/bags">Clutches</a></li>
+													<li><a href="/clutches">Bags</a></li>
+													<li><a href="/glasses">Glasses</a></li>
+                                                </ul>
+                                            </li>
+                                            
+                                       
+                                    
+                                    
+                                      													
+                                    
+                                    <li><a href="/about">About Us</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
+                                    <!-- <%if(!isLoggedIn){%>
+                                    <li><a href="/login">Login/Signup</a> </li>
+                                    <%}%> -->
+                                </ul>
+                            </nav>
+                        </div>						
+                    </div>
+                </div>
+                <!-- mobile menu end -->
+            </div>
+            <!-- mainmenu area end -->
+            <!-- top details area start -->
+            <div class="col-md-3 nopadding-left" style="margin-top:2.5% ;">
+                <div class="top-detail">
+                 
+                    <!-- addcart top start -->
+                    <div class="disflow" style="margin:0 10%">
+                        <div class="circle-shopping expand">
+                            <div class="shopping-carts text-right">
+                                
+                                
+                                
+                                <%if(cartItems!==''){%>
+                                <div class="cart-toggler">
+                                    <a href="/cart"><i class="icon-bag"></i></a>
+                                    
+                                    
+                                        
+                                    <a href="#"><span class="cart-quantity"><%=cartItems.length%></span></a>
+                                   
+                                </div>
+                               
+                                <div class="restrain small-cart-content">
+                                    <%cartItems.forEach(p=>{%>
+                                    <ul class="cart-list">
+                                       
+                                        <li>
+                                            <a class="sm-cart-product" href="/shop/<%=p._id%>">
+                                                <img src="<%=p.productId.imageUrl%>" alt="">
+                                            </a>
+                                            <div class="small-cart-detail">
+                                                <a class="remove" href="/deleteCartItem/<%=p._id%>"><i class="fa fa-times-circle"></i></a>
+                                                
+                                                <a class="small-cart-name" href="/shop/<%=p._id%>"><%=p.productId.title%></a>
+                                                <span class="quantitys"><strong><%=p.quantity%></strong>x<span><%=p.productId.price%></span></span>
+                                            </div>
+                                            
+                                        </li>
+                                       
+                                    </ul>
+                                    <%})%>
+                                    <p class="total">Total: <span class="amount"><%=total%></span></p>
+                                    <p class="buttons">
+                                        <a href="/checkout" class="button">Checkout</a>
+                                    </p>
+                                   
+                                
+                                </div>
+                                
+                            </div>
+                            <%}%>
+                        </div>
+                    </div>
+                   
+                    <!-- addcart top start -->
+                    <!-- search divition start -->
+                    <!-- <div class="disflow">
+                        <div class="header-search expand">
+                            <div class="search-icon fa fa-search"></div>
+                            <div class="product-search restrain">
+                                <div class="container nopadding-right">
+                                    <form action="http://demo.hasthemes.com/lavorov2/lavoro/index.html" id="searchform" method="get">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" maxlength="128" placeholder="Search product...">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- search divition end -->
+                    <div class="disflow" style="margin:0 5%;">
+                        <%if(isLoggedIn){%>
+                        <li style="list-style-type: none;"><form action="/logout" method="POST"><button type="submit"  class="btn btn-outline-light">Logout</button>
+                           
+                            </form></li>
+                            <%}else{%>
+
+                                <li style="list-style-type: none;">	<button type="button" class="btn btn-outline-light"><a href="/login">Login/Signup</a>   </button> </li>
+                           
+                                <%}%>
+                        
+                        <!-- <div class="expand dropps-menu">
+                            <a href="#"><i class="fa fa-align-right"></i></a>
+                            <ul class="restrain language">
+                                <li><a href="/login">My Account</a></li>
+                                
+                                <li><a href="/cart">My Cart</a></li>
+                                <li><a href="/checkout">Checkout</a></li>
+                                <%if(isLoggedIn){%>
+                                <li><form action="/logout" method="POST"><button type="submit">Logout</button>
+                                    
+                                    </form></li>
+                                    <%}%>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- top details area end -->
+        </div>
+    </div>
+</header>
+<!-- header area end -->
+
