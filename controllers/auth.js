@@ -16,8 +16,8 @@ const transporter = nodemailer.createTransport({
   // port: 465,
   // secure: true, // use SSL
   auth: {
-      user: 'muhamedusama648@gmail.com',
-      pass: 'aliheider5689@'
+      user: 'Yout email here',
+      pass: 'Your password here'
   }
 });
 
@@ -166,7 +166,7 @@ exports.getLogin=(req,res,next)=>{
            res.redirect('/login');
            await transporter.sendMail({
                 to:email,
-                from:'scenzzs@gmail.com',
+                from:'email here',
                 subject:'signup succeeded!',
                 html:'<h1>You Successfully SignedUp</h1>'
             });
@@ -233,7 +233,7 @@ exports.getLogin=(req,res,next)=>{
           res.redirect('/');
           await transporter.sendMail({
             to: req.body.email,
-            from: 'muhamedusama648@gmail.com',
+            from: 'your email here',
             subject: 'Password reset',
             html: `
               <p>You requested a password reset</p>
