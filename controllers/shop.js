@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
   // port: 465,
   // secure: true, // use SSL
   auth: {
-      user: 'muhamedusama648@gmail.com',
-      pass: 'aliheider5689@'
+      user: 'Your Email here',
+      pass: 'Password here'
   }
 });
 
@@ -99,15 +99,15 @@ const problem=req.body.problem;
 
 await transporter.sendMail({
   to:email,
-  from:'muhamedusama648@gmail.com',
+  from:'mail here',
   subject:'signup succeeded!',
   html:`<h1>Thankyou for letting us know your problem!</h1>
   <p>You will notify on your query soon </p>`
 });
 //sending mail to admin
 await transporter.sendMail({
-to:'muhamedusama468@gmail.com',
-from:'muhamedusama648@gmail.com',
+to:'admin mail',
+from:'your mail here',
 subject:'Problem',
 html:`<h1>The Person with email ${email}just submitted a Problem </h1>
 <p>problem</p>`
@@ -305,15 +305,15 @@ exports.postCheckout = async(req, res, next) => {
 
      await  transporter.sendMail({
       to:req.user.email,
-      from:'muhamedusama648@gmail.com',
+      from:'your email here',
       subject:'signup succeeded!',
       html:`<h1>Thankyou for you order!</h1>
       <p>Your total bill is ${total}</p>`
   });
   //sending mail to admin
   await  transporter.sendMail({
-    to:'muhamedusama468@gmail.com',
-    from:'muhamedusama648@gmail.com',
+    to:'admin mail here',
+    from:'your mail here',
     subject:'signup succeeded!',
     html:`<h1>Order Details</h1><p>${products}</p>
     <p>The total bill is ${total}</p>`
