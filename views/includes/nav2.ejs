@@ -89,11 +89,15 @@
 							<div class="disflow" style="margin:0 10%;">
 								<div class="circle-shopping expand">
 									<div class="shopping-carts text-right">
+										<%if(cartItems!==''){%>
 										<div class="cart-toggler">
 											<a href="/cart"><i class="icon-bag" style="color: white;"></i></a>
-											<a href="#"><span class="cart-quantity">2</span></a>
+											<%if(cartItems.length!==0){%>
+											<a href="#"><span class="cart-quantity"><%=cartItems.length%></span></a>
+											<%}%>
 										</div>
 										<div class="restrain small-cart-content">
+											<%cartItems.forEach(p=>{%>
 											<ul class="cart-list">
 												<li>
 													<a class="sm-cart-product" href="product-details.html">
@@ -102,28 +106,20 @@
 													<div class="small-cart-detail">
 														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
 														<a href="#" class="edit-btn"><img src="/img/btn_edit.gif" alt="Edit Button" /></a>
-														<a class="small-cart-name" href="product-details.html">Voluptas nulla</a>
-														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
+														<a class="small-cart-name" href="product-details.html"><%=p.productId.title%></a>
+														<span class="quantitys"><strong><%=p.quantity%></strong>x<span><%=p.productId.price%></span></span>
 													</div>
 												</li>
-												<li>
-													<a class="sm-cart-product" href="product-details.html">
-														<img src="/img/products/sm-products/cart2.jpg" alt="">
-													</a>
-													<div class="small-cart-detail">
-														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
-														<a href="#" class="edit-btn"><img src="/img/btn_edit.gif" alt="Edit Button" /></a>
-														<a class="small-cart-name" href="product-details.html">Donec ac tempus</a>
-														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
-													</div>
-												</li>
+												
 											</ul>
-											<p class="total">Subtotal: <span class="amount">$155.00</span></p>
+											<%})%>
+											<p class="total">Total: <span class="amount"><%=total%></span></p>
 											<p class="buttons">
 												<a href="/checkout" class="button">Checkout</a>
 											</p>
 										</div>
 									</div>
+									<%}%>
 								</div>
 							</div>
 							
